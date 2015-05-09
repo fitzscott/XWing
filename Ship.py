@@ -40,7 +40,8 @@ class Ship:
     def hits(self):
         return(self._shields + self._hull)
 
-    def attacktarget(self, targetship, closerange=False, longrange=False):
+    def attacktarget(self, targetship, closerange=False, longrange=False,
+                     evade=False):
         ag = AggDice.AggDice()
 
         if closerange:
@@ -51,13 +52,24 @@ class Ship:
             defadd = 1
         else:
             defadd = 0
-        
+
         ag.setupdice(self.attack + attadd, targetship.defense + defadd)
 
         hitsreqd = targetship.hits
         avgrndsnorm = hitsreqd / ag.avghits()
         avgrndsattfoc = hitsreqd / ag.avghits(True, False)
         avgrndsdeffoc = hitsreqd / ag.avghits(False, True)
+        if evade:
+            avghits = ag.avghits(False, False, True)
+            if avghits > 0:
+                avgrndsdefevade = hitsreqd / avghits
+            else:
+                avgrndsdefevade = -1
+            avghitsattfoc = ag.avghits(True, False, True)
+            if avghitsattfoc > 0:
+                avgrndsdefevadeattfoc = hitsreqd / avghitsattfoc
+            else:
+                avgrndsdefevadeattfoc = -1
         attdicedpr = targetship.attack / avgrndsnorm
         avgrndstillcrits = targetship.shields / ag.avghits()
 
@@ -65,6 +77,11 @@ class Ship:
         print("Avg rounds no focus to destroy: " + str(avgrndsnorm))
         print("Avg rounds attack focus to destroy: " + str(avgrndsattfoc))
         print("Avg rounds defense focus to destroy: " + str(avgrndsdeffoc))
+        if evade:
+            print("Avg rounds defense evade to destroy: " +
+                  str(avgrndsdefevade))
+            print("Avg rounds attack focus + defense evade to destroy: " +
+                  str(avgrndsdefevadeattfoc))
         print("Avg rounds before crits: " + str(avgrndstillcrits))
         print("Attack dice destroyed per round: " + str(attdicedpr))
 

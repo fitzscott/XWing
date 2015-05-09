@@ -57,7 +57,7 @@ class AggDice():
                     newmat.append(newarr)
             self.aggddice = newmat
 
-    def counthits(self, attackfocus=False, defensefocus=False):
+    def counthits(self, attackfocus=False, defensefocus=False, evade=False):
         totalhits = 0
         for matidx in range(len(self.aggddice)):
             rowhits = 0
@@ -71,14 +71,16 @@ class AggDice():
                     rowhits += 1
                 if defensefocus and pip == 'E':
                     rowhits -= 1
+            if evade:   # This only happens once per roll
+                rowhits -= 1
             if rowhits > 0:    # skip negative - can't have negative hits
                 totalhits += rowhits
         return(totalhits)
 
-    def avghits(self, attackfocus=False, defensefocus=False):
+    def avghits(self, attackfocus=False, defensefocus=False, evade=False):
         totalrolls = len(self.aggddice)
         if (totalrolls > 0):
-            return((1.00 * self.counthits(attackfocus, defensefocus)) /
+            return((1.00 * self.counthits(attackfocus, defensefocus, evade)) /
                    (1.00 * totalrolls))
         else:
             return -1
