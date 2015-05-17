@@ -121,4 +121,4 @@ class AggDice():
             self.adddie(dd)
 
     def prnagg(self):
-        print self.aggddice
+        print str(self.aggddice)

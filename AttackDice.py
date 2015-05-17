@@ -26,13 +26,7 @@ class AttackDice(Dice.Dice):
         return(self.chancehit() + self.chanceeyeball())
 
     def addpips(self):
-        self.addpip('H')
-        self.addpip('H')
-        self.addpip('H')
-        self.addpip(' ')
-        self.addpip(' ')
-        self.addpip('C')
-        self.addpip('E')
+        Dice.Dice.addpips(self, "HHH  CE")
 
 if __name__ == '__main__':
     ad = AttackDice()

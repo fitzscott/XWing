@@ -27,13 +27,7 @@ class DefenseDice(Dice.Dice):
 
     def addpips(self):
         # print("Adding pips to Defense")
-        self.addpip('D')
-        self.addpip('D')
-        self.addpip('D')
-        self.addpip(' ')
-        self.addpip(' ')
-        self.addpip(' ')
-        self.addpip('E')
+        Dice.Dice.addpips(self, "DDD   E")
 
 if __name__ == '__main__':
     dd = DefenseDice()

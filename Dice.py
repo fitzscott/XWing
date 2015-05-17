@@ -9,7 +9,8 @@ Created on Mon May  4 22:33:57 2015
 class Dice:
     def __init__(self):
         self.sides = 8
-        self.pips = []
+        # self.pips = []
+        self.pips = ""
         # print("In Dice __init__")
 
     def sides(self):
@@ -18,8 +19,8 @@ class Dice:
     def addpip(self, pip2add):
         self.pips.append(pip2add)
 
-    def addpips(self):
-        pass
+    def addpips(self, pipsasstr):
+        self.pips = pipsasstr
 
     def getpip(self, idx):
         return self.pips[idx]
