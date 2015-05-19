@@ -17,7 +17,7 @@ class DiceSimulator:
 
     def __init__(self, seed=None):
         random.seed(seed)
-        self._attk = "HHHC  EE"
+        self._attk = "HHHC  AA"
         self._dfns = "DDD   EE"
         self._distchk = [0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -29,7 +29,7 @@ class DiceSimulator:
         hits = 0
         if pip == 'H' or pip == 'C':
             hits = 1
-        if pip == 'E' and attfocus:
+        if pip == 'A' and attfocus:
             hits = 1
         return(hits)
 

@@ -67,7 +67,7 @@ class AggDice():
                     rowhits += 1
                 if pip == 'D':
                     rowhits -= 1
-                if attackfocus and pip == 'E':
+                if attackfocus and pip == 'A':
                     rowhits += 1
                 if defensefocus and pip == 'E':
                     rowhits -= 1
@@ -121,4 +121,13 @@ class AggDice():
             self.adddie(dd)
 
     def prnagg(self):
-        print str(self.aggddice)
+        # print str(self.aggddice)
+        for rlen in range(len(self.aggddice)):
+            rslt = self.aggddice[rlen]
+            dispstr = ""
+            for pip in range(len(rslt)):
+                if rslt[pip] == " ":
+                    dispstr += "-"
+                else:
+                    dispstr += rslt[pip]
+            print(dispstr)

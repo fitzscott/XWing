@@ -7,7 +7,7 @@ Created on Sat May 9 12:18:44 2015
 
 import DiceSimulator
 
-times2run = 1000000
+times2run = 10000000
 
 ds = DiceSimulator.DiceSimulator()
 
