@@ -85,6 +85,13 @@ class Ship:
         print("Avg rounds before crits: " + str(avgrndstillcrits))
         print("Attack dice destroyed per round: " + str(attdicedpr))
 
+    def faceoff(self, atknb):
+        print("------------------------------------")
+        self.attacktarget(atknb)
+        print("------------------------------------")
+        atknb.attacktarget(self)
+        print("------------------------------------")
+
 if __name__ == '__main__':
     xw = Ship("X-Wing", 3, 2, 2, 3)
     print(xw.name + " can take " + str(xw.hits) + " hits.")
