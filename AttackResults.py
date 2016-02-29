@@ -38,6 +38,8 @@ class AttackResults:
             print("Range: " + str(rng2tgt+1))
             print("Avg rounds for " + self._attacker.name + " to destroy " +
                   self._defender.name + ": " + str(r1[rng2tgt].avgrnds))
+            print("Avg rounds for " + self._defender.name + " to destroy " +
+                  self._attacker.name + ": " + str(r2[rng2tgt].avgrnds))
             print("Rounds to destroy ratio (" + self._attacker.name +
                   " : " + self._defender.name + "): " +
                   str(r1[rng2tgt].avgrnds / r2[rng2tgt].avgrnds))
