@@ -9,14 +9,14 @@ import Ship
 import AttackResults
 
 # Rebel ships
-xw = Ship.Ship("X-Wing", 3, 2, 2, 3)
-yw = Ship.Ship("Y-Wing", 2, 1, 3, 5)
-bw = Ship.Ship("B-Wing", 3, 1, 5, 3)
+xw = Ship.Ship("X-Wing", 3, 2, 3, 2)
+yw = Ship.Ship("Y-Wing", 2, 1, 5, 3)
+bw = Ship.Ship("B-Wing", 3, 1, 3, 5)
 aw = Ship.Ship("A-Wing", 2, 3, 2, 2)
 
 # Imperial ships
-tie = Ship.Ship("TIE", 2, 3, 0, 3)
-advtie = Ship.Ship("Adv TIE", 2, 3, 2, 3)
+tie = Ship.Ship("TIE", 2, 3, 3, 0)
+advtie = Ship.Ship("Adv TIE", 2, 3, 3, 2)
 
 ar1 = AttackResults.AttackResults(tie, xw)
 ar1.focuscombos()

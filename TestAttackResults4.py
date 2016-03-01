@@ -9,9 +9,9 @@ import Ship
 import AttackResults
 
 # Rebel ships
-xw = Ship.Ship("X-Wing", 3, 2, 2, 3)
-yw = Ship.Ship("Y-Wing", 2, 1, 3, 5)
-bw = Ship.Ship("B-Wing", 3, 1, 5, 3)
+xw = Ship.Ship("X-Wing", 3, 2, 3, 2)
+yw = Ship.Ship("Y-Wing", 2, 1, 5, 3)
+bw = Ship.Ship("B-Wing", 3, 1, 3, 5)
 aw = Ship.Ship("A-Wing", 2, 3, 2, 2)
 
 # Imperial ships
@@ -33,6 +33,7 @@ ar2 = AttackResults.AttackResults(phantie, yw)
 ar2.focuscombos()
 ar3 = AttackResults.AttackResults(phantie, bw)
 ar3.focuscombos()
-ar4 = AttackResults.AttackResults(phantie, aw)
-ar4.focuscombos()
+# These don't work so well on the old machine.
+#ar4 = AttackResults.AttackResults(phantie, aw)
+#ar4.focuscombos()
 

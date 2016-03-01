@@ -13,7 +13,7 @@ class Ship:
     Base class for different ship types
     """
 
-    def __init__(self, nam, att, dfns, shld, hul):
+    def __init__(self, nam, att, dfns, hul, shld):
         self._name = nam
         self._attack = att
         self._defense = dfns
@@ -93,5 +93,5 @@ class Ship:
         print("------------------------------------")
 
 if __name__ == '__main__':
-    xw = Ship("X-Wing", 3, 2, 2, 3)
+    xw = Ship("X-Wing", 3, 2, 3, 2)
     print(xw.name + " can take " + str(xw.hits) + " hits.")
