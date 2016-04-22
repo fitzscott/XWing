@@ -24,9 +24,20 @@ class Ship:
     def name(self):
         return(self._name)
 
-    @property
-    def attack(self):
-        return(self._attack)
+#    @property
+#    def attack(self):
+#        return(self._attack)
+
+    def setattack(self, att):
+        self._attack = att
+
+    # kludge - need a parameter for attack dice, so can't use property
+    def attack(self, closerange=False, longrange=False):
+        if closerange:
+            attadd = 1
+        else:
+            attadd = 0
+        return(self._attack + attadd)
 
     @property
     def defense(self):
@@ -44,16 +55,13 @@ class Ship:
                      evade=False):
         ag = AggDice.AggDice()
 
-        if closerange:
-            attadd = 1
-        else:
-            attadd = 0
         if longrange:
             defadd = 1
         else:
             defadd = 0
 
-        ag.setupdice(self.attack + attadd, targetship.defense + defadd)
+        ag.setupdice(self.attack(closerange, longrange), \
+                     targetship.defense + defadd)
 
         hitsreqd = targetship.hits
         avgrndsnorm = hitsreqd / ag.avghits()
@@ -70,7 +78,7 @@ class Ship:
                 avgrndsdefevadeattfoc = hitsreqd / avghitsattfoc
             else:
                 avgrndsdefevadeattfoc = -1
-        attdicedpr = targetship.attack / avgrndsnorm
+        attdicedpr = targetship.attack() / avgrndsnorm
         avgrndstillcrits = targetship.shields / ag.avghits()
 
         print(self.name + " attacking " + targetship.name + ":")

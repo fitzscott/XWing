@@ -54,8 +54,9 @@ ar = AttackResults.AttackResults(m3a, deftie)
 ar.focuscombos()
 ar = AttackResults.AttackResults(hwk, deftie)
 ar.focuscombos()
-ar = AttackResults.AttackResults(fs, deftie)
-ar.focuscombos()
+# this one has trouble on the old machine
+#ar = AttackResults.AttackResults(fs, deftie)
+#ar.focuscombos()
 
 ar = AttackResults.AttackResults(z95, phantie)
 ar.focuscombos()
@@ -63,6 +64,7 @@ ar = AttackResults.AttackResults(m3a, phantie)
 ar.focuscombos()
 ar = AttackResults.AttackResults(hwk, phantie)
 ar.focuscombos()
+# this one probabably will, too, but it's last
 ar = AttackResults.AttackResults(fs, phantie)
 ar.focuscombos()
 

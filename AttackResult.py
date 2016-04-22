@@ -51,6 +51,14 @@ class AttackResult:
         self._rangetotarget = rng
 
     @property
+    def closerange(self):
+        return(self.rangetotarget == 1)
+
+    @property
+    def longrange(self):
+        return(self.rangetotarget == 3)
+
+    @property
     def attackfocus(self):
         return self._attackfocus
 
@@ -101,16 +109,12 @@ class AttackResult:
     def calcresults(self):
         ag = AggDice.AggDice()
 
-        if self.rangetotarget == 1:
-            attadd = 1
-        else:
-            attadd = 0
         if self.rangetotarget == 3:
             defadd = 1
         else:
             defadd = 0
 
-        ag.setupdice(self._attacker.attack + attadd,
+        ag.setupdice(self._attacker.attack(self.closerange, self.longrange), \
                      self._defender.defense + defadd)
 
         hitsreqd = self._defender.hits
